@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="http://www.example.com">
+    <title>Ultra Basic Page Template with Basic Elements</title>
+    <meta name="description" content="A starting point for html documents" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+    <script src="jquery.hammer.js"></script>
+    <script>
+
+
+    </script>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        html{
+            font-size: 100%;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+        }
+        input#main-menu-checkbox{
+            display: none;
+        }
+        #main-menu-checkbox:checked ~ nav:not(.inner-nav-wrapper){
+            background-color: red;
+            -webkit-transform: translateX(0rem);
+            -ms-transform: translateX(0rem);
+            transform: translateX(0rem);
+            transition-delay: .75s;
+            opacity: 1;
+            transition: opacity .75s ease-in-out;
+            -moz-transition: opacity .75s ease-in-out;
+            -webkit-transition: opacity .75s ease-in-out;
+            max-width: 240px;
+            width: 100%;
+            height: 100%;
+            float: left;
+            left: 0px;
+            padding-top: 60px;
+        }
+
+        #main-menu-checkbox:not(:checked) ~ nav{
+            transition: opacity .75s ease-in-out;
+            -moz-transition: opacity .75s ease-in-out;
+            -webkit-transition: opacity .75s ease-in-out;
+            transition-delay: .75s;
+            opacity: 0;
+        }
+        #main-menu-navigation{
+            transform: translateX(-1000rem);0
+            transition-delay: .75s;
+            transition: opacity .75s ease-in-out;
+            -moz-transition: opacity .75s ease-in-out;
+            -webkit-transition: opacity .75s ease-in-out;
+            width: 0px;
+            height: 0px;
+            opacity: 0;
+        }
+
+        article{
+            display: inline-block;
+            max-width: 600px;
+        }
+
+        .main-menu-label{
+            display: block;
+            top: 5px;
+            left: 5px;
+            margin-left: 5px;
+            margin-bottom: 15px;
+            font-size: 200%;
+            position: absolute;
+            z-index: 1000;
+        }
+        .content-area{
+            max-width: 400px;}
+
+        .inner-nav-wrapper{
+            column-count: 3;
+            -webkit-column-count: 3; /* Chrome, Safari, Opera */
+            -moz-column-count: 3; /* Firefox */
+
+            column-width: 60px;
+            -webkit-column-width: 60px;
+            -moz-column-width: 60px;
+
+            column-fill: balance;
+            -moz-column-fill: balance;
+            -webkit-column-fill: balance;
+
+
+            column-gap: balance;
+            -moz-column-gap: balance;
+            -webkit-column-gap: balance;
+        }
+
+        .inner-nav-item{
+            -webkit-column-break-inside: avoid;
+            -moz-column-break-inside: avoid;
+            column-break-inside: avoid;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .inner-nav-item img{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="page">
+    <header>
+        <input type="checkbox" id="main-menu-checkbox" name="Main Menu" class="main-menu-input"/>
+        <label for="main-menu-checkbox" class="main-menu-label">&#9776;</label>
+        <nav id="main-menu-navigation">
+            <ul>
+                <li><a href="#">Main Link</a></li>
+                <li class="menuparent"><a href="#">Main Link</a>
+                    <ul>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Main Link</a></li>
+                <li class="menuparent"><a href="#">Main Link</a>
+                    <ul>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                        <li><a href="#">Child Nav Link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Main Link</a></li>
+            </ul>
+        </nav>
+
+        <h1>Name</h1>
+
+        <div class="search-block-form contextual-region block block-search container-inline" data-drupal-selector="search-block-form" id="block-ultra-basic-classy-search" role="search">
+
+            <h2>Search</h2>
+            <div data-contextual-id="block:block=ultra_basic_classy_search:langcode=en"></div>
+            <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+                <div class="js-form-item form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label">
+                    <label for="edit-keys" class="visually-hidden">Search</label>
+                    <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search" />
+
+                </div>
+                <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="" value="Search" class="button js-form-submit form-submit" />
+                </div>
+
+            </form>
+
+        </div>
+
+        <nav class="inner-nav-wrapper">
+            <ul>
+                <li class="inner-nav-item"><span class="text-item">Item 1</span></li>
+                <li class="inner-nav-item"><span class="text-item">Item 2</span></li>
+                <li class="inner-nav-item"><span class="text-item">Item 3</span></li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+<article>
+    <div>asdfsadf asdfsadf
+        Loasdfasdfrem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porttitor mi quasdfasdfis erat facilisis, et ornare metus efficitur. Nunc metus odio, volutpat non tempus eget, mattis id quam. Cras sit amet finibus libero. Sed porta porttitor justo quis ullamcorper. Suspendisse potenti. Sed turpis nulla, vestibulum ut lacinia ac, dictum et lacus. Praesent quis sagittis tortor, in gravida risus. Cras condimentum nunc at enim laoreet, vel varius ipsum placerat. Nullam nec consequat ante. Quisque eu erat sodales, porta urna et, consectetur orci. Morbi porttitor nibh in mollis maximus. Donec non nisl libero.
+asdfasdf
+        Suspendisse potenti. Aenean sagittasdfasdfis iaculis bibendum. Donec vitae nunc elit. Praesent vitae dolor placerat, sollicitudin risus ut, aliquam dolor. Etiam molestie odio sit amet augue ultrices posuere. Suspendisse porta vulputate augue at mattis. Nunc rutrum orci in lacinia dapibus. Mauris enim leo, egestas et leo nec, mattis rutrum lorem. Donec rhoncus feugiat elit, at egestas velit lacinia ut. Mauris ullamcorper massa id placerat iaculis. Fusce tempor, est sed venenatis scelerisque, erat leo mollis turpis, at ullamcorper ligula est sit amet ex.
+
+        Fusce sit amet lectus semper, efficitur asdfasdfasdfrisus ac, tincidunt nunc. Duis ornare non eros sed suscipit. Suspendisse potenti. Curabitur ac nunc lobortis risus hendrerit pulvinar. Praesent neque nunc, gravida nec neque quis, porta iaculis leo. Cras eros purus, malesuada a congue ac, sagittis non orci. Aenean posuere faucibus nulla sed egestas. Aliquam erat volutpat. Vivamus vestibulum et nibh eget hendrerit. Nunc et ex elit. Quisque dapibus non ante non consectetur. In tristique facilisis odio et tristique. Morbi varius, urna quis accumsan molestie, lacus justo tincidunt erat, a efficitur mi nisi sed ligula. Nullam facilisis aliquet purus, sit amet ullamcorper ante suscipit vel. Proin molestie ipsum ut consequat feugiat. Etiam tincidunt augue at lectus malesuada, sit amet semper quam ultricies.
+    </div>
+
+    <div>asdfsadf asdfsadf
+        Loasdfasdfrem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porttitor mi quasdfasdfis erat facilisis, et ornare metus efficitur. Nunc metus odio, volutpat non tempus eget, mattis id quam. Cras sit amet finibus libero. Sed porta porttitor justo quis ullamcorper. Suspendisse potenti. Sed turpis nulla, vestibulum ut lacinia ac, dictum et lacus. Praesent quis sagittis tortor, in gravida risus. Cras condimentum nunc at enim laoreet, vel varius ipsum placerat. Nullam nec consequat ante. Quisque eu erat sodales, porta urna et, consectetur orci. Morbi porttitor nibh in mollis maximus. Donec non nisl libero.
+        asdfasdf
+        Suspendisse potenti. Aenean sagittis iaculis bibendumasdfasdfasdf. Donec vitae nunc elit. Praesent vitae dolor placerat, sollicitudin risus ut, aliquam dolor. Etiam molestie odio sit amet augue ultrices posuere. Suspendisse porta vulputate augue at mattis. Nunc rutrum orci in lacinia dapibus. Mauris enim leo, egestas et leo nec, mattis rutrum lorem. Donec rhoncus feugiat elit, at egestas velit lacinia ut. Mauris ullamcorper massa id placerat iaculis. Fusce tempor, est sed venenatis scelerisque, erat leo mollis turpis, at ullamcorper ligula est sit amet ex.
+
+        Fusce sit amet lectus semper, efficitur asdfasdfasdfrisus ac, tincidunt nunc. Duis ornare non eros sed suscipit. Suspendisse potenti. Curabitur ac nunc lobortis risus hendrerit pulvinar. Praesent neque nunc, gravida nec neque quis, porta iaculis leo. Cras eros purus, malesuada a congue ac, sagittis non orci. Aenean posuere faucibus nulla sed egestas. Aliquam erat volutpat. Vivamus vestibulum et nibh eget hendrerit. Nunc et ex elit. Quisque dapibus non ante non consectetur. In tristique facilisis odio et tristique. Morbi varius, urna quis accumsan molestie, lacus justo tincidunt erat, a efficitur mi nisi sed ligula. Nullam facilisis aliquet purus, sit amet ullamcorper ante suscipit vel. Proin molestie ipsum ut consequat feugiat. Etiam tincidunt augue at lectus malesuada, sit amet semper quam ultricies.
+    </div>
+
+asdfasdfasdfsadfasdfasdfaeeeeeee
+</article>
+<footer>This is the footer</footer>
+</div>
+</body>
+</html>
