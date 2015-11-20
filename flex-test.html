@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultra Basic Page Template</title>
+    <script></script>
+    <style>
+	
+	html, body{
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+		.box{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: stretch;
+			min-width: 320px;
+			min-height: 90%;
+		}
+		
+		.box .item{
+		}
+		
+		.box #item-1{
+			flex-grow: 1;
+			min-width: 180px;
+			background-color: grey;
+			min-height: auto;
+		}
+		.box #item-2{
+			flex-grow: 4;
+			min-width: 320px;
+			background-color: yellow;
+			min-height: auto;
+		}
+		.box #item-3{
+			flex-grow: 1;
+			min-width: 180px;
+			background-color: red;
+            min-height: auto;
+		}
+        footer{
+            min-width: 100%;
+            min-height: 5%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            -webkit-align-content: center;
+        }
+        header{
+            min-width: 100%;
+            min-height: 5%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            -webkit-align-content: center;
+            text-align: center;
+        }
+        .push-nav{
+            text-align: center;
+        }
+        .push-nav li{
+            display: inline-block;
+            max-with: 300px;
+            width: 32%;
+            background-color: lightcyan;
+        }
+      .push-nav ul{
+          margin: 0px;
+          padding: 0px;
+      }
+
+        @media (min-width: 500px) {
+
+            #item-1{
+                order: 1;
+                background-color: green;
+            }
+            #item-2{
+                order: 2;
+            }
+            #item-3{
+                order: 3;
+                width: 100%;
+            }
+
+        }
+
+    @media (min-width: 920px) {
+        #item-3{
+            order: 3;
+            min-width: 180px;
+            width: auto;
+        }
+    }
+
+    </style>
+</head>
+<body>
+<header>
+<div>Header will be here</div>
+</header>
+<nav class="push-nav">
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</nav>
+	<div class="box">
+        <div id="item-2" class="item">Item 2</div>
+		<div id="item-1" class="item">Item </div>
+		<div id="item-3" class="item">Item 3</div>
+	</div>
+    <footer>Footer - Some text here</footer>
+</body>
+</html>
