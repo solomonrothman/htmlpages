@@ -102,11 +102,57 @@
         }
     }
 
+        #main-menu-navigation{
+            background-color: blue;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            transform: translate3d(-200%,0,0);
+            display: block;
+            text-align: center;
+            overflow: auto;
+            transition: transform 0.5s, visibility 0s 0.5s; /* transition settings. */
+            box-sizing: border-box; /* include padding/ border as part of declared menu width */
+            z-index: 100;
+            top: 0;
+            left: 0;
+        }
+
+    input[type="checkbox"]#main-menu-checkbox:checked ~ nav#main-menu-navigation{
+        transform: translate3d(0,0,0);
+    }
+
+        .inside-close{
+            font-size: 20px;
+            float: right;
+            margin-right: 10px;
+        }
+        .menu-nav-list{
+            clear: both;
+        }
+
     </style>
 </head>
 <body>
+
+<input type="checkbox" id="main-menu-checkbox" name="Main Menu" class="main-menu-input"/>
+<label for="main-menu-checkbox" class="main-menu-label">&#9776;</label>
+<nav id="main-menu-navigation">
+    <label for="main-menu-checkbox" class="main-menu-label inside-close">&#10006;</label>
+    <ul class="menu-nav-list">
+        <li><a href="/home">Menu Link 1</a></li>
+        <li><a href="/home">Menu Link 1</a></li>
+        <li><a href="/home">Menu Link 1</a></li>
+        <li><a href="/home">Menu Link 1</a></li>
+    </ul>
+</nav>
+
 <header>
 <div>Header will be here</div>
+
+
+
+
 </header>
 <nav class="push-nav">
     <ul>
