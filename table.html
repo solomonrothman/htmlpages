@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <script></script>
+    <style>
+        body{
+
+        }
+
+        .container-table{
+            border: 1px solid black;
+        }
+
+        table{
+            width: 98%;
+            padding: 5px;
+            font-size: 1.6vw;
+            min-width: 320px;
+            overflow-x: scroll;
+        }
+
+        .container-table thead{
+            display: flex;
+            width: 100%;
+        }
+
+        .container-table thead tr{
+            flex-grow: 1;
+            display: inline-block;
+            flex-basis: 0;
+            padding: .25rem;
+            min-width: 60px;
+        }
+        .container-table tbody{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .container-table tbody tr{
+            display: flex;
+            width: 100%;
+        }
+        .container-table tbody tr th,.container-table tbody tr td{
+            flex-grow: 1;
+            flex-basis: 0;
+            display: inline-block;
+            text-align: inherit;
+            padding: .25rem;
+            min-width: 60px;
+        }
+
+
+        #page-wrapper{
+            min-width: 320px;
+            display: block;
+        }
+
+        @media screen and (max-width: 960px){
+            table{
+                font-size: 2vw;
+            }
+        }
+
+        @media screen and (max-width: 720px){
+            table{
+                font-size: 2.4vw;
+            }
+            .container-table thead{
+                display: none;
+            }
+
+            .container-table tbody,
+            .container-table tbody tr, .container-table tbody tr th, .container-table tbody tr td {display: block;}
+
+            .container-table tbody tr th:before,.container-table tbody tr td:before{
+                content: attr(data-title) "";
+                display: inline-block;
+                padding-right: 3vw;
+                font-weight: normal;
+
+            }
+            .container-table tbody tr{
+                padding-top: 3vw;
+                padding-bottom: 3vw;
+            }
+
+        }
+        @media screen and (max-width: 560px){
+            table{
+                font-size: 3vw;
+            }
+        }
+        @media screen and (max-width: 440px){
+            table{
+                font-size: 4vw;
+            }
+        }
+        @media screen and (max-width: 360px){
+            table{
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<div>
+<div id="page-wrapper">
+    <div class="container-table">
+        <table class="table">
+            <caption>Table Caption Here, it can also be long.</caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="column-1-header" data-title="Column 1 Header">Column 1 Header</th>
+                </tr>
+                <tr>
+                    <th scope="col" data-title="Column 2 Header">Column 2 Header</th>
+                </tr>
+                <tr>
+                    <th scope="col" data-title="Column 3 Header">Column 3 Header</th>
+                </tr>
+                <tr>
+                    <th scope="col" data-title="Column 4 Header">Column 4 Header</th>
+                </tr>
+                <tr>
+                    <th scope="col" data-title="Column 5 Header">Column 5 Header</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" data-title="Column 1 Header">First Row HD</th>
+                    <td data-title="Column 2 Header">Sample Data</td>
+                    <td data-title="Column 3 Header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla, lorem ut scelerisque suscipit, est odio malesuada risus, id pellentesque diam libero sed arcu. In nisl dui, dapibus ut sollicitudin ac, imperdiet non elit. Fusce eros lectus, fringilla vitae malesuada eget, congue eget leo. Nam lacinia sollicitudin sapien in placerat. Nulla congue maximus nisl, in dictum arcu fringilla ut.</td>
+                    <td data-title="Column 4 Header">Sample Data</td>
+                    <td data-title="Column 5 Header">Sample Data</td>
+                </tr>
+                <tr><th scope="row" data-title="Column 1 Header">Second Row HD</th>
+                    <td data-title="Column 2 Header">Sample Data</td>
+                    <td data-title="Column 3 Header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla, lorem ut scelerisque suscipit, est odio malesuada risus, id pellentesque diam libero sed arcu. In nisl dui, dapibus ut sollicitudin ac, imperdiet non elit. Fusce eros lectus, fringilla vitae malesuada eget, congue eget leo. Nam lacinia sollicitudin sapien in placerat. Nulla congue maximus nisl, in dictum arcu fringilla ut.</td>
+                    <td data-title="Column 4 Header">Sample Data</td>
+                    <td data-title="Column 5 Header">Sample Data</td>
+                </tr>
+                <tr><th scope="row" data-title="Column 1 Header">Third Row HD</th>
+                    <td data-title="Column 2 Header">Sample Data</td>
+                    <td data-title="Column 3 Header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla, lorem ut scelerisque suscipit, est odio malesuada risus, id pellentesque diam libero sed arcu. In nisl dui, dapibus ut sollicitudin ac, imperdiet non elit. Fusce eros lectus, fringilla vitae malesuada eget, congue eget leo. Nam lacinia sollicitudin sapien in placerat. Nulla congue maximus nisl, in dictum arcu fringilla ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla, lorem ut scelerisque suscipit, est odio malesuada risus, id pellentesque diam libero sed arcu. In nisl dui, dapibus ut sollicitudin ac, imperdiet non elit. Fusce eros lectus, fringilla vitae malesuada eget, congue eget leo. Nam lacinia sollicitudin sapien in placerat. Nulla congue maximus nisl, in dictum arcu fringilla ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla, lorem ut scelerisque suscipit, est odio malesuada risus, id pellentesque diam libero sed arcu. In nisl dui, dapibus ut sollicitudin ac, imperdiet non elit. Fusce eros lectus, fringilla vitae malesuada eget, congue eget leo. Nam lacinia sollicitudin sapien in placerat. Nulla congue maximus nisl, in dictum arcu fringilla ut.</td>
+                    <td data-title="Column 4 Header">Sample Data</td>
+                    <td data-title="Column 5 Header">Sample Data</td></tr>
+                <tr><th scope="row" data-title="Column 1 Header">Fourth Row HD</th>
+                    <td data-title="Column 2 Header">Sample Data</td>
+                    <td data-title="Column 3 Header"">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                    <td data-title="Column 4 Header">Sample Data</td>
+                    <td data-title="Column 5 Header">Sample Data</td></tr>
+                <tr><th scope="row" data-title="Column 1 Header">Fifth Row HD</th>
+                    <td data-title="Column 2 Header">Sample Data</td>
+                    <td data-title="Column 3 Header">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                    <td data-title="Column 4 Header">Sample Data</td>
+                    <td data-title="Column 5 Header">Sample Data</td></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        * Table footer goes here.
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+</div>
+        <div style="height: 1000px;">asdfasdfsadf</div>
+    </div>
+</div>
+
+
+</body>
+</html>
