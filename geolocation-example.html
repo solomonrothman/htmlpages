@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo Location Samples</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        function getUserLocation(success) {
+            navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        success(position);
+                    });
+        }
+
+        function geoLocateSuccess(position) {
+            //  console.log(position);
+            $('#location-holder').html('');
+            var coords = position.coords;
+            $.each(coords, function (key, value) {
+                locProp = key + " " + value;
+                $('#location-holder').append(locProp + '<br />');
+
+            });
+            //console.log(coords);
+        }
+
+        function geoLocateFailure() {
+            // console.log("It didn't work");
+        }
+
+        $(function () {
+            $('#geolocate-location').click(function () {
+                // console.log('geolocate as clicked');
+                getUserLocation(geoLocateSuccess);
+            });
+            $('#reverse-geolocate-location').click(function () {
+                // console.log('geolocate as clicked');
+                getUserLocation(geoReverseCode);
+            });
+
+            var locTime = localStorage.getItem('locTime');
+            if ($.isNumeric(locTime) && (Date.now() - locTime < 3600000)) {
+                console.log('check passed');
+                $('#isLA-value').html('In Los Angeles: ' + localStorage.getItem('isLA'));
+                $('#isCA-value').html('In California: ' + localStorage.getItem('isCA'));
+                $('#isUS-value').html('In US: ' + localStorage.getItem('isUS'));
+                $('#isZip-value').html('ZIP: ' + localStorage.getItem('USZIP'));
+            }
+            else {
+                getUserLocation(geoReverseCode);
+            }
+        });
+
+        function locationCheck(addresses) {
+
+            //console.log('about to check locations');
+            //console.log(addresses);
+            isLA = false;
+            isCA = false;
+            isUS = false;
+            USZIP = false;
+
+            $.each(addresses, function (index, value) {
+
+                //console.log(value.address_components[0].short_name);
+
+                switch (value.address_components[0].short_name) {
+                    case 'Los Angeles':
+                        isLA = true;
+                        break;
+                    case 'CA':
+                        isCA = true;
+                        break;
+                    case 'US':
+                        isUS = true;
+                        break;
+                }
+
+                if ($.isNumeric(value.address_components[0].short_name) && value.address_components[0].types[0] == 'postal_code') {
+                    USZIP = value.address_components[0].short_name;
+                }
+
+            })
+            if (isLA != false) {
+                setLocalStore('isLA', isLA);
+            }
+            if (isCA != false) {
+                setLocalStore('isCA', isCA);
+            }
+            if (isUS != false) {
+                setLocalStore('isUS', isUS);
+            }
+            if (USZIP != false) {
+                setLocalStore('USZIP', USZIP);
+            }
+            setLocalStore('locTime', Date.now());
+        }
+
+        function setLocalStore(key, value) {
+            //console.log('LocalStore ' + key + ' ' + value);
+            localStorage.setItem(key, value);
+        }
+
+        function geoReverseCode(position) {
+            $('#reverse-location-holder').html('');
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+            latlng = {'lat': lat, 'lng': long};
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({'location': latlng}, function (results) {
+                locationCheck(results);
+                //console.log(results);
+                //console.log(results[0].formatted_address);
+                $('#reverse-location-holder').append(results[0].formatted_address);
+            });
+        }
+
+        function initMap() {
+            //console.log('Google Maps Ready');
+        }
+
+    </script>
+    <style></style>
+</head>
+<body>
+<h1>Geolocation data here</h1>
+
+<div>
+    <ul>
+        <li id="isUS-value">In Los Angeles:</li>
+        <li id="isCA-value">In California:</li>
+        <li id="isLA-value">In US:</li>
+        <li id="isZip-value">Is Zip:</li>
+    </ul>
+</div>
+
+<button id="geolocate-location" name="geolocate-location">From Device</button>
+<div id="location-holder">
+    Location is loading
+</div>
+<h1>Reverse Geolocation</h1>
+<button id="reverse-geolocate-location" name="reverse-geolocate-location">
+    Reverse Geolocation
+</button>
+<div id="reverse-location-holder">
+    Location is loading
+</div>
+<h1>Remember Geolocation from Local Storage for Some Browsers</h1>
+<div id="location-holder-remnobrow">
+    Location is loading
+</div>
+
+<h1>Remember Geolocation from Local Storage for All Browsers</h1>
+<div id="location-holder-rem">
+    Location is loading
+</div>
+
+<!-- var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])} -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAPS_API_KEY&signed_in=true&callback=initMap"
+        async defer></script>
+</body>
+</html>
